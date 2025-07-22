@@ -80,16 +80,6 @@
         "time": "2025-07-22 01:13:40"
     },
     {
-        "colo": "LAX",
-        "ip": "104.16.85.134",
-        "latency": 136,
-        "line": "CT",
-        "loss": 0,
-        "node": "QIXJSCT",
-        "speed": 265,
-        "time": "2025-07-22 01:23:40"
-    },
-    {
         "colo": "SJC",
         "ip": "104.19.218.28",
         "latency": 147,
@@ -98,6 +88,16 @@
         "node": "QYZJBGP",
         "speed": 265,
         "time": "2025-07-22 01:16:05"
+    },
+    {
+        "colo": "LAX",
+        "ip": "104.16.85.134",
+        "latency": 136,
+        "line": "CT",
+        "loss": 0,
+        "node": "QIXJSCT",
+        "speed": 265,
+        "time": "2025-07-22 01:23:40"
     },
     {
         "colo": "HKG",
