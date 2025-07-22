@@ -3,16 +3,11 @@
 // تنظیم منطقه زمانی به وقت ایران
 date_default_timezone_set('Asia/Tehran');
 
-// اطمینان از وجود پوشه list
-if (!is_dir('list')) {
-    mkdir('list', 0777, true);
-}
-
 function get_optimization_ip($type = 'v4') {
     $KEY = 'o1zrmHAF';
     try {
-        $headers = ['Content-Type: application/json'];
-        $data = ['key' => $KEY, 'type' => $type];
+        $headers = array('Content-Type: application/json');
+        $data = array("key" => $KEY, "type" => $type);
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, 'https://api.hostmonit.com/get_optimization_ip');
         curl_setopt($ch, CURLOPT_POST, true);
@@ -24,22 +19,13 @@ function get_optimization_ip($type = 'v4') {
         $http_status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
         if ($http_status == 200) {
-            $decoded = json_decode($response, true);
-            if (json_last_error() === JSON_ERROR_NONE) {
-                file_put_contents("list/api_response_$type.json", json_encode($decoded, JSON_PRETTY_PRINT)); // لاگ برای دیباگ
-                return $decoded;
-            } else {
-                echo "JSON DECODE ERROR: " . json_last_error_msg() . "\n";
-                return null;
-            }
+            return json_decode($response, true);
         } else {
-            echo "CHANGE OPTIMIZATION IP ERROR: REQUEST STATUS CODE IS $http_status\n";
-            file_put_contents("list/error_$type.txt", "HTTP Status: $http_status\nResponse: $response");
+            echo "CHANGE OPTIMIZATION IP ERROR: REQUEST STATUS CODE IS NOT 200\n";
             return null;
         }
     } catch (Exception $e) {
         echo "CHANGE OPTIMIZATION IP ERROR: " . $e->getMessage() . "\n";
-        file_put_contents("list/error_$type.txt", "Exception: " . $e->getMessage());
         return null;
     }
 }
@@ -52,24 +38,13 @@ $getListIpv4 = get_optimization_ip();
 $ipv4 = [];
 if (isset($getListIpv4['code'], $getListIpv4['total']) && $getListIpv4['code'] === 200 && $getListIpv4['total'] > 0) {
     foreach ($getListIpv4['info'] as $l) {
-        if (is_array($l) && isset($l['ip'], $l['port'])) {
+        if (isset($l['ip'], $l['port'])) {
             $ipv4[] = $l['ip'] . ':' . $l['port'];
         } elseif (is_string($l)) {
             $ipv4[] = $l;
-        } else {
-            echo "Unexpected IPv4 data format: " . print_r($l, true) . "\n";
-            file_put_contents("list/debug_ipv4.txt", print_r($l, true), FILE_APPEND);
         }
     }
-    if (!empty($ipv4)) {
-        file_put_contents("list/ipv4.json", json_encode(array_slice($ipv4, 0, 25), JSON_PRETTY_PRINT));
-    } else {
-        echo "No valid IPv4 addresses found\n";
-        file_put_contents("list/debug_ipv4.txt", "No valid IPv4 addresses found\n", FILE_APPEND);
-    }
-} else {
-    echo "Invalid IPv4 API response: " . print_r($getListIpv4, true) . "\n";
-    file_put_contents("list/debug_ipv4.txt", "Invalid response: " . print_r($getListIpv4, true), FILE_APPEND);
+    file_put_contents("list/ipv4.json", json_encode(array_slice($ipv4, 0, 25), JSON_PRETTY_PRINT));
 }
 
 // دریافت لیست IPv6
@@ -77,24 +52,13 @@ $getListIpv6 = get_optimization_ip('v6');
 $ipv6 = [];
 if (isset($getListIpv6['code'], $getListIpv6['total']) && $getListIpv6['code'] === 200 && $getListIpv6['total'] > 0) {
     foreach ($getListIpv6['info'] as $l) {
-        if (is_array($l) && isset($l['ip'], $l['port'])) {
+        if (isset($l['ip'], $l['port'])) {
             $ipv6[] = '[' . $l['ip'] . ']:' . $l['port'];
         } elseif (is_string($l)) {
             $ipv6[] = $l;
-        } else {
-            echo "Unexpected IPv6 data format: " . print_r($l, true) . "\n";
-            file_put_contents("list/debug_ipv6.txt", print_r($l, true), FILE_APPEND);
         }
     }
-    if (!empty($ipv6)) {
-        file_put_contents("list/ipv6.json", json_encode(array_slice($ipv6, 0, 25), JSON_PRETTY_PRINT));
-    } else {
-        echo "No valid IPv6 addresses found\n";
-        file_put_contents("list/debug_ipv6.txt", "No valid IPv6 addresses found\n", FILE_APPEND);
-    }
-} else {
-    echo "Invalid IPv6 API response: " . print_r($getListIpv6, true) . "\n";
-    file_put_contents("list/debug_ipv6.txt", "Invalid response: " . print_r($getListIpv6, true), FILE_APPEND);
+    file_put_contents("list/ipv6.json", json_encode(array_slice($ipv6, 0, 25), JSON_PRETTY_PRINT));
 }
 
 // ترکیب و ذخیره در export.json
@@ -109,7 +73,7 @@ if (!empty($ipv4) && !empty($ipv6)) {
 $readme_content = "# Optimized IP Addresses\n\n";
 $readme_content .= "## Last Updated: $last_updated\n\n";
 $readme_content .= "This repository provides a list of optimized IPv4 and IPv6 addresses fetched from the Hostmonit API. These addresses can be used for network optimization, proxy setup, or other connectivity purposes. The list is updated every 2 hours to ensure freshness.\n\n";
-$readme_content .= "Click on any IP address below to copy it to your clipboard.\n\n";
+
 $readme_content .= <<<EOD
 <script>
 function copyToClipboard(text) {
@@ -118,30 +82,21 @@ function copyToClipboard(text) {
     });
 }
 </script>
-
-## IPv4 Addresses\n
 EOD;
 
-if (!empty($ipv4)) {
-    foreach (array_slice($ipv4, 0, 15) as $ip) {
-        $safe_ip = htmlspecialchars($ip, ENT_QUOTES, 'UTF-8');
-        $readme_content .= "- <a href='#' onclick=\"copyToClipboard('$safe_ip')\">$ip</a>\n";
-    }
-} else {
-    $readme_content .= "- No IPv4 addresses available at this time.\n";
+$readme_content .= "\n## IPv4 Addresses\n";
+foreach (array_slice($ipv4, 0, 15) as $ip) {
+    // برای جلوگیری از خطاهای نقل قول، از htmlspecialchars استفاده می‌کنیم
+    $safe_ip = htmlspecialchars($ip, ENT_QUOTES);
+    $readme_content .= "- <a href='#' onclick=\"copyToClipboard('$safe_ip')\">$ip</a>\n";
 }
 
 $readme_content .= "\n## IPv6 Addresses\n";
-if (!empty($ipv6)) {
-    foreach (array_slice($ipv6, 0, 15) as $ip) {
-        $safe_ip = htmlspecialchars($ip, ENT_QUOTES, 'UTF-8');
-        $readme_content .= "- <a href='#' onclick=\"copyToClipboard('$safe_ip')\">$ip</a>\n";
-    }
-} else {
-    $readme_content .= "- No IPv6 addresses available at this time.\n";
+foreach (array_slice($ipv6, 0, 15) as $ip) {
+    $safe_ip = htmlspecialchars($ip, ENT_QUOTES);
+    $readme_content .= "- <a href='#' onclick=\"copyToClipboard('$safe_ip')\">$ip</a>\n";
 }
 
-$readme_content .= "\n*Generated by [scripts/fetch_ips.php](scripts/fetch_ips.php)*\n";
-
+$readme_content .= "\n\nGenerated by scripts/fetch_ips.php";
 file_put_contents("README.md", $readme_content);
 echo "README.md updated successfully!\n";
