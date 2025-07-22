@@ -63,18 +63,18 @@ $readme_content .= "This repository provides a list of optimized IPv4 and IPv6 a
 $readme_content .= "## IPv4\n";
 foreach (array_slice($ipv4, 0, 15) as $ip) {
     if (is_array($ip) && isset($ip['ip'])) {
-        $readme_content .= "```\n" . $ip['ip'] . "\n```\n";
+        $readme_content .= "```\n" . $ip['ip'] . ":443\n```\n";
     } else {
-        $readme_content .= "```\n" . $ip . "\n```\n";
+        $readme_content .= "```\n" . $ip . ":443\n```\n";
     }
 }
 
 $readme_content .= "\n## IPv6\n";
 foreach (array_slice($ipv6, 0, 15) as $ip) {
     if (is_array($ip) && isset($ip['ip'])) {
-        $readme_content .= "```\n" . $ip['ip'] . "\n```\n";
+        $readme_content .= "```\n[" . $ip['ip'] . "]:443\n```\n";
     } else {
-        $readme_content .= "```\n" . $ip . "\n```\n";
+        $readme_content .= "```\n[" . $ip . "]:443\n```\n";
     }
 }
 
