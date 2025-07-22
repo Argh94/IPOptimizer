@@ -1,6 +1,6 @@
 # Optimized IP Addresses
 
-## Last Updated: 2025-07-22 20:23:06
+## Last Updated: 2025-07-22 20:26:12
 
 This repository provides a list of optimized IPv4 and IPv6 addresses fetched from the Hostmonit API. These addresses can be used for network optimization, proxy setup, or other connectivity purposes. The list is updated every 2 hours to ensure freshness.
 
