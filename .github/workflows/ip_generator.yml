@@ -1,0 +1,47 @@
+name: IPGenerator_Endpoint
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "main" ]
+  schedule:
+    - cron: '0 */2 * * *' # هر 2 ساعت اجرا می‌شود
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -e {0}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.0'
+
+      - name: Create list directory
+        run: mkdir -p list 
+
+      - name: Execute PHP script
+        run: php scripts/fetch_ips.php 
+
+      - name: Configure Git
+        run: |
+          git config --global user.email "ircfspace@gmail.com"
+          git config --global user.name "ircfspace"
+
+      - name: Commit changes
+        run: |
+          git add -A
+          git diff --cached --quiet || git commit -m "♻️ Automatic update - $(TZ='Asia/Tehran' date '+%Y-%m-%d %H:%M')"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
