@@ -150,6 +150,21 @@
         ]
     },
     {
+        "colo": "SJC",
+        "ip": "104.19.182.119",
+        "latency": 136,
+        "line": "CT",
+        "loss": 0,
+        "node": "QIXJSCT",
+        "speed": 310,
+        "time": "2025-07-29 23:53:20",
+        "open_ports": [
+            80,
+            443,
+            8080
+        ]
+    },
+    {
         "colo": "LAX",
         "ip": "104.19.247.34",
         "latency": 142,
@@ -158,21 +173,6 @@
         "node": "QYZJBGP",
         "speed": 295,
         "time": "2025-07-29 23:45:06",
-        "open_ports": [
-            80,
-            443,
-            8080
-        ]
-    },
-    {
-        "colo": "SJC",
-        "ip": "104.19.169.198",
-        "latency": 148,
-        "line": "CT",
-        "loss": 0,
-        "node": "QIXJSCT",
-        "speed": 200,
-        "time": "2025-07-29 23:43:36",
         "open_ports": [
             80,
             443,
