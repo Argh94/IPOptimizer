@@ -172,7 +172,7 @@ $readme_content .= "- 🐛 **گزارش مشکلات**: [Issues](https://github.
 $readme_content .= "- 📧 **تماس**: [ircfspace@gmail.com](mailto:ircfspace@gmail.com)\n\n";
 
 $readme_content .= "## 📄 لایسنس\n";
-$readme_content .= "این پروژه تحت [لایسنس MIT](LICENSE) منتشر شده است.\n";
+$readme_content .= "این پروژه تحت [لایسنس MIT](https://github.com/Argh94/HandWave/blob/main/LICENCE) منتشر شده است.\n";
 
 if (!is_dir('list')) {
     mkdir('list', 0777, true);
