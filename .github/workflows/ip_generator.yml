@@ -1,11 +1,11 @@
-name: IPGenerator_Endpoint
+name: IPOptimizer
 
 on:
   workflow_dispatch:
   push:
     branches: [ "main" ]
   schedule:
-    - cron: '0 */2 * * *' # هر 2 ساعت اجرا می‌شود
+    - cron: '0 */5 * * *' # هر ۵ ساعت اجرا می‌شود
 
 jobs:
   build:
@@ -13,6 +13,8 @@ jobs:
     defaults:
       run:
         shell: bash -e {0}
+    env:
+      HOSTMONIT_API_KEY: ${{ secrets.HOSTMONIT_API_KEY }}
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
