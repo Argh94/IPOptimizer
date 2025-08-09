@@ -1,13 +1,13 @@
 [
     {
         "colo": "Default",
-        "ip": "2606:4700:3025:4c18:b21a:dfc9:cbd5:afe1",
-        "latency": 9,
+        "ip": "2606:4700:9b02:3194:f94:a170:8adf:4db5",
+        "latency": 3,
         "line": "CM",
         "loss": 0,
         "node": "NETCUP",
-        "speed": 517,
-        "time": "2025-08-08 08:59:50",
+        "speed": 497,
+        "time": "2025-08-08 13:09:49",
         "open_ports": [
             80,
             443,
@@ -16,13 +16,13 @@
     },
     {
         "colo": "Default",
-        "ip": "2606:4700:3025:52c9:23f8:91df:e9e9:c9c8",
-        "latency": 9,
+        "ip": "2606:4700:90d9:fabf:c255:17f8:3605:89d5",
+        "latency": 3,
         "line": "CM",
         "loss": 0,
         "node": "NETCUP",
-        "speed": 415,
-        "time": "2025-08-08 08:59:49",
+        "speed": 479,
+        "time": "2025-08-08 13:09:50",
         "open_ports": [
             80,
             443,
@@ -31,13 +31,13 @@
     },
     {
         "colo": "Default",
-        "ip": "2606:4700:3019:6f13:e6ff:ecb0:621e:f544",
-        "latency": 9,
+        "ip": "2606:4700:9a91:e4c2:3803:413b:7c90:142f",
+        "latency": 3,
         "line": "CM",
         "loss": 0,
         "node": "NETCUP",
-        "speed": 411,
-        "time": "2025-08-08 08:59:49",
+        "speed": 441,
+        "time": "2025-08-08 13:09:50",
         "open_ports": [
             80,
             443,
@@ -46,103 +46,13 @@
     },
     {
         "colo": "Default",
-        "ip": "2606:4700:3025:4c18:b21a:dfc9:cbd5:afe1",
-        "latency": 9,
-        "line": "CT",
-        "loss": 0,
-        "node": "NETCUP",
-        "speed": 517,
-        "time": "2025-08-08 08:59:50",
-        "open_ports": [
-            80,
-            443,
-            8080
-        ]
-    },
-    {
-        "colo": "Default",
-        "ip": "2606:4700:3025:52c9:23f8:91df:e9e9:c9c8",
-        "latency": 9,
-        "line": "CT",
-        "loss": 0,
-        "node": "NETCUP",
-        "speed": 415,
-        "time": "2025-08-08 08:59:49",
-        "open_ports": [
-            80,
-            443,
-            8080
-        ]
-    },
-    {
-        "colo": "Default",
-        "ip": "2606:4700:3019:6f13:e6ff:ecb0:621e:f544",
-        "latency": 9,
-        "line": "CT",
-        "loss": 0,
-        "node": "NETCUP",
-        "speed": 411,
-        "time": "2025-08-08 08:59:49",
-        "open_ports": [
-            80,
-            443,
-            8080
-        ]
-    },
-    {
-        "colo": "Default",
-        "ip": "2606:4700:3025:4c18:b21a:dfc9:cbd5:afe1",
-        "latency": 9,
-        "line": "CU",
-        "loss": 0,
-        "node": "NETCUP",
-        "speed": 517,
-        "time": "2025-08-08 08:59:50",
-        "open_ports": [
-            80,
-            443,
-            8080
-        ]
-    },
-    {
-        "colo": "Default",
-        "ip": "2606:4700:3025:52c9:23f8:91df:e9e9:c9c8",
-        "latency": 9,
-        "line": "CU",
-        "loss": 0,
-        "node": "NETCUP",
-        "speed": 415,
-        "time": "2025-08-08 08:59:49",
-        "open_ports": [
-            80,
-            443,
-            8080
-        ]
-    },
-    {
-        "colo": "Default",
-        "ip": "2606:4700:3019:6f13:e6ff:ecb0:621e:f544",
-        "latency": 9,
-        "line": "CU",
-        "loss": 0,
-        "node": "NETCUP",
-        "speed": 411,
-        "time": "2025-08-08 08:59:49",
-        "open_ports": [
-            80,
-            443,
-            8080
-        ]
-    },
-    {
-        "colo": "Default",
-        "ip": "2606:4700:3019:fe61:9783:b21d:41ab:85aa",
-        "latency": 10,
+        "ip": "2606:4700:964e:da5a:3b2f:f9b6:2481:b07a",
+        "latency": 3,
         "line": "CM",
         "loss": 0,
         "node": "NETCUP",
-        "speed": 429,
-        "time": "2025-08-08 08:59:49",
+        "speed": 360,
+        "time": "2025-08-08 13:09:49",
         "open_ports": [
             80,
             443,
@@ -151,13 +61,13 @@
     },
     {
         "colo": "Default",
-        "ip": "2606:4700:3019:fe61:9783:b21d:41ab:85aa",
-        "latency": 10,
+        "ip": "2606:4700:9b02:3194:f94:a170:8adf:4db5",
+        "latency": 3,
         "line": "CT",
         "loss": 0,
         "node": "NETCUP",
-        "speed": 429,
-        "time": "2025-08-08 08:59:49",
+        "speed": 497,
+        "time": "2025-08-08 13:09:49",
         "open_ports": [
             80,
             443,
@@ -166,13 +76,58 @@
     },
     {
         "colo": "Default",
-        "ip": "2606:4700:3019:fe61:9783:b21d:41ab:85aa",
-        "latency": 10,
+        "ip": "2606:4700:90d9:fabf:c255:17f8:3605:89d5",
+        "latency": 3,
+        "line": "CT",
+        "loss": 0,
+        "node": "NETCUP",
+        "speed": 479,
+        "time": "2025-08-08 13:09:50",
+        "open_ports": [
+            80,
+            443,
+            8080
+        ]
+    },
+    {
+        "colo": "Default",
+        "ip": "2606:4700:9a91:e4c2:3803:413b:7c90:142f",
+        "latency": 3,
+        "line": "CT",
+        "loss": 0,
+        "node": "NETCUP",
+        "speed": 441,
+        "time": "2025-08-08 13:09:50",
+        "open_ports": [
+            80,
+            443,
+            8080
+        ]
+    },
+    {
+        "colo": "Default",
+        "ip": "2606:4700:964e:da5a:3b2f:f9b6:2481:b07a",
+        "latency": 3,
+        "line": "CT",
+        "loss": 0,
+        "node": "NETCUP",
+        "speed": 360,
+        "time": "2025-08-08 13:09:49",
+        "open_ports": [
+            80,
+            443,
+            8080
+        ]
+    },
+    {
+        "colo": "Default",
+        "ip": "2606:4700:9b02:3194:f94:a170:8adf:4db5",
+        "latency": 3,
         "line": "CU",
         "loss": 0,
         "node": "NETCUP",
-        "speed": 429,
-        "time": "2025-08-08 08:59:49",
+        "speed": 497,
+        "time": "2025-08-08 13:09:49",
         "open_ports": [
             80,
             443,
@@ -181,13 +136,58 @@
     },
     {
         "colo": "Default",
-        "ip": "2606:4700:91b0:db60:b5e1:19f7:1725:e631",
-        "latency": 16,
+        "ip": "2606:4700:90d9:fabf:c255:17f8:3605:89d5",
+        "latency": 3,
+        "line": "CU",
+        "loss": 0,
+        "node": "NETCUP",
+        "speed": 479,
+        "time": "2025-08-08 13:09:50",
+        "open_ports": [
+            80,
+            443,
+            8080
+        ]
+    },
+    {
+        "colo": "Default",
+        "ip": "2606:4700:9a91:e4c2:3803:413b:7c90:142f",
+        "latency": 3,
+        "line": "CU",
+        "loss": 0,
+        "node": "NETCUP",
+        "speed": 441,
+        "time": "2025-08-08 13:09:50",
+        "open_ports": [
+            80,
+            443,
+            8080
+        ]
+    },
+    {
+        "colo": "Default",
+        "ip": "2606:4700:964e:da5a:3b2f:f9b6:2481:b07a",
+        "latency": 3,
+        "line": "CU",
+        "loss": 0,
+        "node": "NETCUP",
+        "speed": 360,
+        "time": "2025-08-08 13:09:49",
+        "open_ports": [
+            80,
+            443,
+            8080
+        ]
+    },
+    {
+        "colo": "Default",
+        "ip": "2606:4700:9a91:1d4c:ff1c:b120:bd00:10a8",
+        "latency": 4,
         "line": "CM",
         "loss": 0,
         "node": "NETCUP",
-        "speed": 562,
-        "time": "2025-08-08 08:59:49",
+        "speed": 457,
+        "time": "2025-08-08 13:09:49",
         "open_ports": [
             80,
             443,
@@ -196,13 +196,13 @@
     },
     {
         "colo": "Default",
-        "ip": "2606:4700:91b0:db60:b5e1:19f7:1725:e631",
-        "latency": 16,
+        "ip": "2606:4700:9a91:1d4c:ff1c:b120:bd00:10a8",
+        "latency": 4,
         "line": "CT",
         "loss": 0,
         "node": "NETCUP",
-        "speed": 562,
-        "time": "2025-08-08 08:59:49",
+        "speed": 457,
+        "time": "2025-08-08 13:09:49",
         "open_ports": [
             80,
             443,
@@ -211,13 +211,13 @@
     },
     {
         "colo": "Default",
-        "ip": "2606:4700:91b0:db60:b5e1:19f7:1725:e631",
-        "latency": 16,
+        "ip": "2606:4700:9a91:1d4c:ff1c:b120:bd00:10a8",
+        "latency": 4,
         "line": "CU",
         "loss": 0,
         "node": "NETCUP",
-        "speed": 562,
-        "time": "2025-08-08 08:59:49",
+        "speed": 457,
+        "time": "2025-08-08 13:09:49",
         "open_ports": [
             80,
             443,
