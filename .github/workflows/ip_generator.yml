@@ -5,8 +5,8 @@ on:
   push:
     branches: [ "main" ]
   schedule:
-    - cron: '30 8 * * *' # اجرا در 08:30 UTC (12:00 IRST)
-    - cron: '30 18 * * *' # اجرا در 18:30 UTC (22:00 IRST)
+    - cron: '30 20 * * *' # اجرا در 20:30 UTC (00:00 IRST)
+    - cron: '30 6 * * *'  # اجرا در 06:30 UTC (10:00 IRST)
 
 jobs:
   build:
