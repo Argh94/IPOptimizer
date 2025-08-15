@@ -69,6 +69,7 @@ function check_open_ports($ip, $ports = [80, 443, 8080], $timeout = 2) {
 function process_ips($ip_list, $type, $ports_to_check, $timeout = 2) {
     $ips = [];
     $ips_with_ports = [];
+    $list_dir = getenv('LIST_DIR') ?: 'list'; // استفاده از متغیر محیطی
     if (isset($ip_list['code'], $ip_list['total']) && $ip_list['code'] === 200 && $ip_list['total'] > 0) {
         foreach ($ip_list['info'] as $l) {
             $ips = array_merge($ips, $l);
@@ -79,10 +80,10 @@ function process_ips($ip_list, $type, $ports_to_check, $timeout = 2) {
             $open_ports = check_open_ports($ip, $ports_to_check, $timeout);
             $ips_with_ports[] = array_merge($ip_data, ['open_ports' => $open_ports]);
         }
-        if (!is_dir('list')) {
-            mkdir('list', 0777, true);
+        if (!is_dir($list_dir)) {
+            mkdir($list_dir, 0777, true);
         }
-        file_put_contents("list/$type.json", json_encode(array_slice($ips_with_ports, 0, 25), JSON_PRETTY_PRINT));
+        file_put_contents("$list_dir/$type.json", json_encode(array_slice($ips_with_ports, 0, 25), JSON_PRETTY_PRINT));
     }
     return $ips_with_ports;
 }
@@ -99,35 +100,38 @@ $getListIpv6 = get_optimization_ip('v6');
 $ipv6_with_ports = process_ips($getListIpv6, 'ipv6', $ports_to_check);
 
 $ips = [];
+$list_dir = getenv('LIST_DIR') ?: 'list'; // استفاده از متغیر محیطی برای export.json
 if (!empty($ipv4_with_ports) || !empty($ipv6_with_ports)) {
     $ips['ipv4'] = array_slice($ipv4_with_ports, 0, 25);
     $ips['ipv6'] = array_slice($ipv6_with_ports, 0, 25);
-    if (!is_dir('list')) {
-        mkdir('list', 0777, true);
+    if (!is_dir($list_dir)) {
+        mkdir($list_dir, 0777, true);
     }
-    file_put_contents("list/export.json", json_encode($ips, JSON_PRETTY_PRINT));
+    file_put_contents("$list_dir/export.json", json_encode($ips, JSON_PRETTY_PRINT));
 }
 
 $readme_content = "# IPOptimizer\n\n";
 $readme_content .= "[![GitHub Actions](https://github.com/Argh94/IPOptimizer/workflows/IPOptimizer/badge.svg)](https://github.com/Argh94/IPOptimizer/actions)\n";
-$readme_content .= "[![PHP Version](https://img.shields.io/badge/PHP-8.0-blue)](https://www.php.net)\n";
+$readme_content .= "[![PHP Version](https://img.shields.io/badge/PHP-8.0%2B-blue)](https://www.php.net)\n";
 $readme_content .= "[![Update Frequency](https://img.shields.io/badge/Updates-Every%205%20Hours-green)](https://github.com/Argh94/IPOptimizer)\n";
 $readme_content .= "[![License](https://img.shields.io/badge/License-MIT-yellow)](https://opensource.org/licenses/MIT)\n";
 $readme_content .= "[![Issues](https://img.shields.io/github/issues/Argh94/IPOptimizer)](https://github.com/Argh94/IPOptimizer/issues)\n\n";
 
 $readme_content .= "## 🚀 بهینه‌سازی شبکه با IPهای برتر\n\n";
-$readme_content .= "**IPOptimizer** هر ۵ ساعت یک‌بار لیستی از IPهای بهینه (IPv4 و IPv6) با کمترین تأخیر را از [Hostmonit](https://hostmonit.com/) دریافت می‌کند. این IPها برای تنظیم پروکسی، VPN، یا بهبود عملکرد شبکه ایده‌آل هستند.\n\n";
+$readme_content .= "**IPOptimizer** هر ۵ ساعت یک‌بار لیستی از IPهای بهینه (IPv4 و IPv6) با کمترین تأخیر را از [Hostmonit](https://hostmonit.com/) دریافت می‌کند. این IPها برای تنظیم پروکسی، VPN یا بهبود عملکرد شبکه مناسب هستند.\n\n";
 $readme_content .= "**آخرین به‌روزرسانی:** $last_updated\n\n";
+$readme_content .= "**فایل‌های JSON**: فایل‌های `ipv4.json`، `ipv6.json` و `export.json` در پوشه `list` یا [بخش Releases](https://github.com/Argh94/IPOptimizer/releases) در دسترس هستند.\n\n";
 
 $readme_content .= "## ✨ ویژگی‌ها\n";
-$readme_content .= "- 📡 **IPهای کم‌تأخیر**: مرتب‌شده بر اساس کمترین latency.\n";
-$readme_content .= "- 🔍 **پورت‌های پیشنهادی**: پورت‌های باز (80، 443، 8080) به‌صورت خودکار بررسی می‌شوند.\n";
-$readme_content .= "- ⏰ **به‌روزرسانی منظم**: هر ۵ ساعت با GitHub Actions.\n";
-$readme_content .= "- 📄 **خروجی‌های JSON**: داده‌ها در `list/ipv4.json`، `list/ipv6.json`، و `list/export.json` ذخیره می‌شوند.\n\n";
+$readme_content .= "- 📡 **IPهای کم‌تأخیر**: مرتب‌سازی IPها بر اساس کمترین latency.\n";
+$readme_content .= "- 🔍 **بررسی پورت‌ها**: پورت‌های باز (80، 443، 8080) به‌صورت خودکار بررسی می‌شوند.\n";
+$readme_content .= "- ⏰ **به‌روزرسانی منظم**: به‌روزرسانی خودکار هر ۵ ساعت با GitHub Actions.\n";
+$readme_content .= "- 📄 **خروجی JSON**: ذخیره‌سازی داده‌ها در فایل‌های `ipv4.json`، `ipv6.json` و `export.json`.\n\n";
 
 $readme_content .= "## 📋 IPهای بهینه\n\n";
-$readme_content .= "**توجه:** پورت‌های نمایش‌داده‌شده توسط سرور بررسی شده‌اند، اما ممکن است بسته به شبکه شما متفاوت باشند. برای تأیید، از [YouGetSignal](https://www.yougetsignal.com/tools/open-ports/) (IPv4) یا [Nmap](https://nmap.org/) (IPv6) استفاده کنید.\n\n";
+$readme_content .= "**توجه:** پورت‌های نمایش‌داده‌شده توسط اسکریپت بررسی شده‌اند، اما بسته به شبکه شما ممکن است متفاوت باشند. برای تأیید، از ابزارهایی مانند [YouGetSignal](https://www.yougetsignal.com/tools/open-ports/) برای IPv4 یا [Nmap](https://nmap.org/) برای IPv6 استفاده کنید.\n\n";
 
+$readme_content .= "<div align=\"center\">\n\n";
 $readme_content .= "### IPv4\n";
 $readme_content .= "| IP | پورت‌های پیشنهادی | تأخیر (ms) |\n";
 $readme_content .= "|----|-------------------|------------|\n";
@@ -147,11 +151,13 @@ foreach (array_slice($ipv6_with_ports, 0, 15) as $ip_data) {
     $latency = $ip_data['latency'] ?? 'N/A';
     $readme_content .= "| [$ip] | $ports | $latency |\n";
 }
+$readme_content .= "\n</div>\n";
 
-$readme_content .= "\n## 🛠️ نصب و استفاده\n";
+$readme_content .= "## 🛠️ نصب و استفاده\n";
 $readme_content .= "1. **کلون کردن مخزن**:\n";
 $readme_content .= "   ```bash\n";
 $readme_content .= "   git clone https://github.com/Argh94/IPOptimizer.git\n";
+$readme_content .= "   cd IPOptimizer\n";
 $readme_content .= "   ```\n";
 $readme_content .= "2. **تنظیمات PHP**:\n";
 $readme_content .= "   - PHP 8.0 یا بالاتر نصب کنید.\n";
@@ -159,23 +165,24 @@ $readme_content .= "   - کلید API Hostmonit را در متغیر محیطی 
 $readme_content .= "     ```bash\n";
 $readme_content .= "     export HOSTMONIT_API_KEY=\"your-api-key\"\n";
 $readme_content .= "     ```\n";
+$readme_content .= "   - (اختیاری) مسیر ذخیره‌سازی فایل‌های JSON را با متغیر محیطی `LIST_DIR` تنظیم کنید:\n";
+$readme_content .= "     ```bash\n";
+$readme_content .= "     export LIST_DIR=\"your-custom-path\"\n";
+$readme_content .= "     ```\n";
 $readme_content .= "3. **اجرای اسکریپت**:\n";
 $readme_content .= "   ```bash\n";
 $readme_content .= "   php scripts/fetch_ips.php\n";
 $readme_content .= "   ```\n";
 $readme_content .= "4. **بررسی خروجی**:\n";
-$readme_content .= "   - فایل‌های JSON در پوشه `list/`.\n";
-$readme_content .= "   - لیست IPها در `README.md`.\n\n";
+$readme_content .= "   - فایل‌های JSON (`ipv4.json`، `ipv6.json`، `export.json`) در پوشه `list` یا [بخش Releases](https://github.com/Argh94/IPOptimizer/releases) در دسترس هستند.\n";
+$readme_content .= "   - لیست IPها در `README.md` به‌روزرسانی می‌شود.\n\n";
 
 $readme_content .= "## 📬 پشتیبانی\n";
 $readme_content .= "- 🐛 **گزارش مشکلات**: [Issues](https://github.com/Argh94/IPOptimizer/issues)\n";
 $readme_content .= "- 📧 **تماس**: [ircfspace@gmail.com](mailto:ircfspace@gmail.com)\n\n";
 
 $readme_content .= "## 📄 لایسنس\n";
-$readme_content .= "این پروژه تحت [لایسنس MIT](https://github.com/Argh94/HandWave/blob/main/LICENCE) منتشر شده است.\n";
+$readme_content .= "این پروژه تحت [لایسنس MIT](https://opensource.org/licenses/MIT) منتشر شده است.\n";
 
-if (!is_dir('list')) {
-    mkdir('list', 0777, true);
-}
 file_put_contents("README.md", $readme_content);
 echo "README.md updated successfully!\n";
