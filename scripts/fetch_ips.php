@@ -128,9 +128,6 @@ $readme_content .= "- 🔍 **بررسی پورت‌ها**: پورت‌های ب�
 $readme_content .= "- ⏰ **به‌روزرسانی منظم**: به‌روزرسانی خودکار هر ۵ ساعت با GitHub Actions.\n";
 $readme_content .= "- 📄 **خروجی JSON**: ذخیره‌سازی داده‌ها در فایل‌های `ipv4.json`، `ipv6.json` و `export.json`.\n\n";
 
-$readme_content .= "## 📋 IPهای بهینه\n\n";
-$readme_content .= "**توجه:** پورت‌های نمایش‌داده‌شده توسط اسکریپت بررسی شده‌اند، اما بسته به شبکه شما ممکن است متفاوت باشند. برای تأیید، از ابزارهایی مانند [YouGetSignal](https://www.yougetsignal.com/tools/open-ports/) برای IPv4 یا [Nmap](https://nmap.org/) برای IPv6 استفاده کنید.\n\n";
-
 $readme_content .= "<div align=\"center\">\n\n";
 $readme_content .= "### IPv4\n";
 $readme_content .= "| IP | پورت‌های پیشنهادی | تأخیر (ms) |\n";
@@ -151,14 +148,15 @@ foreach (array_slice($ipv6_with_ports, 0, 15) as $ip_data) {
     $latency = $ip_data['latency'] ?? 'N/A';
     $readme_content .= "| [$ip] | $ports | $latency |\n";
 }
-$readme_content .= "\n</div>\n";
+$readme_content .= "\n</div>\n\n";
 
-$readme_content .= "## 🛠️ نصب و استفاده\n";
+$readme_content .= "## 🛠️ نصب و استفاده\n\n";
+$readme_content .= "<div align=\"center\">\n";
 $readme_content .= "1. **کلون کردن مخزن**:\n";
 $readme_content .= "   ```bash\n";
 $readme_content .= "   git clone https://github.com/Argh94/IPOptimizer.git\n";
 $readme_content .= "   cd IPOptimizer\n";
-$readme_content .= "   ```\n";
+$readme_content .= "   ```\n\n";
 $readme_content .= "2. **تنظیمات PHP**:\n";
 $readme_content .= "   - PHP 8.0 یا بالاتر نصب کنید.\n";
 $readme_content .= "   - کلید API Hostmonit را در متغیر محیطی `HOSTMONIT_API_KEY` تنظیم کنید:\n";
@@ -168,21 +166,26 @@ $readme_content .= "     ```\n";
 $readme_content .= "   - (اختیاری) مسیر ذخیره‌سازی فایل‌های JSON را با متغیر محیطی `LIST_DIR` تنظیم کنید:\n";
 $readme_content .= "     ```bash\n";
 $readme_content .= "     export LIST_DIR=\"your-custom-path\"\n";
-$readme_content .= "     ```\n";
+$readme_content .= "     ```\n\n";
 $readme_content .= "3. **اجرای اسکریپت**:\n";
 $readme_content .= "   ```bash\n";
 $readme_content .= "   php scripts/fetch_ips.php\n";
-$readme_content .= "   ```\n";
+$readme_content .= "   ```\n\n";
 $readme_content .= "4. **بررسی خروجی**:\n";
 $readme_content .= "   - فایل‌های JSON (`ipv4.json`، `ipv6.json`، `export.json`) در پوشه `list` یا [بخش Releases](https://github.com/Argh94/IPOptimizer/releases) در دسترس هستند.\n";
-$readme_content .= "   - لیست IPها در `README.md` به‌روزرسانی می‌شود.\n\n";
+$readme_content .= "   - لیست IPها در `README.md` به‌روزرسانی می‌شود.\n";
+$readme_content .= "</div>\n\n";
 
-$readme_content .= "## 📬 پشتیبانی\n";
+$readme_content .= "## 📬 پشتیبانی\n\n";
+$readme_content .= "<div align=\"center\">\n";
 $readme_content .= "- 🐛 **گزارش مشکلات**: [Issues](https://github.com/Argh94/IPOptimizer/issues)\n";
-$readme_content .= "- 📧 **تماس**: [ircfspace@gmail.com](mailto:ircfspace@gmail.com)\n\n";
+$readme_content .= "- 📧 **تماس**: [ircfspace@gmail.com](mailto:ircfspace@gmail.com)\n";
+$readme_content .= "</div>\n\n";
 
-$readme_content .= "## 📄 لایسنس\n";
+$readme_content .= "## 📄 لایسنس\n\n";
+$readme_content .= "<div align=\"center\">\n";
 $readme_content .= "این پروژه تحت [لایسنس MIT](https://opensource.org/licenses/MIT) منتشر شده است.\n";
+$readme_content .= "</div>\n";
 
 file_put_contents("README.md", $readme_content);
 echo "README.md updated successfully!\n";
