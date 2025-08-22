@@ -133,7 +133,7 @@ $readme_content .= "**Note:** The displayed ports have been checked by the serve
 
 $readme_content .= "### IPv4\n";
 $readme_content .= "| IP | Suggested Ports | Latency (ms) |\n";
-$readme_content .= "|----|------------------|--------------|\n";
+$readme_content .= "|:---:|:---------------:|:------------:|\n"; // استفاده از :--: برای وسط‌چین کردن
 foreach (array_slice($ipv4_with_ports, 0, 15) as $ip_data) {
     $ip = $ip_data['ip'];
     $ports = !empty($ip_data['open_ports']) ? implode(", ", $ip_data['open_ports']) : "Check with online tools";
@@ -143,7 +143,7 @@ foreach (array_slice($ipv4_with_ports, 0, 15) as $ip_data) {
 
 $readme_content .= "\n### IPv6\n";
 $readme_content .= "| IP | Suggested Ports | Latency (ms) |\n";
-$readme_content .= "|----|------------------|--------------|\n";
+$readme_content .= "|:---:|:---------------:|:------------:|\n"; // استفاده از :--: برای وسط‌چین کردن
 foreach (array_slice($ipv6_with_ports, 0, 15) as $ip_data) {
     $ip = $ip_data['ip'];
     $ports = !empty($ip_data['open_ports']) ? implode(", ", $ip_data['open_ports']) : "Check with online tools (Nmap)";
