@@ -132,29 +132,24 @@ $readme_content .= "## 📋 Optimized IPs\n\n";
 $readme_content .= "**Note:** The displayed ports have been checked by the server, but they may vary depending on your network. For verification, use [YouGetSignal](https://www.yougetsignal.com/tools/open-ports/) (IPv4) or [Nmap](https://nmap.org/) (IPv6).\n\n";
 
 $readme_content .= "### IPv4\n";
-$readme_content .= "<div style=\"display: flex; justify-content: center;\">\n";
 $readme_content .= "| IP | Suggested Ports | Latency (ms) |\n";
-$readme_content .= "|:---:|:---------------:|:------------:|\n";
+$readme_content .= "|:---:|:---------------:|:------------:|\n"; // استفاده از :--: برای وسط‌چین کردن
 foreach (array_slice($ipv4_with_ports, 0, 15) as $ip_data) {
     $ip = $ip_data['ip'];
     $ports = !empty($ip_data['open_ports']) ? implode(", ", $ip_data['open_ports']) : "Check with online tools";
     $latency = $ip_data['latency'] ?? 'N/A';
     $readme_content .= "| $ip | $ports | $latency |\n";
 }
-$readme_content .= "</div>\n";
 
 $readme_content .= "\n### IPv6\n";
-$readme_content .= "<div style=\"display: flex; justify-content: center;\">\n";
 $readme_content .= "| IP | Suggested Ports | Latency (ms) |\n";
-$readme_content .= "|:---:|:---------------:|:------------:|\n";
+$readme_content .= "|:---:|:---------------:|:------------:|\n"; // استفاده از :--: برای وسط‌چین کردن
 foreach (array_slice($ipv6_with_ports, 0, 15) as $ip_data) {
     $ip = $ip_data['ip'];
     $ports = !empty($ip_data['open_ports']) ? implode(", ", $ip_data['open_ports']) : "Check with online tools (Nmap)";
     $latency = $ip_data['latency'] ?? 'N/A';
     $readme_content .= "| [$ip] | $ports | $latency |\n";
 }
-$readme_content .= "</div>\n";
-
 $readme_content .= "\n## 🛠️ Installation and Usage\n";
 $readme_content .= "1. **Clone the Repository**:\n";
 $readme_content .= "   ```bash\n";
