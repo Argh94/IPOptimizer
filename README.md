@@ -10,7 +10,7 @@
 
 **IPOptimizer** fetches a list of optimized IPs (IPv4 and IPv6) with the lowest latency from [Hostmonit](https://hostmonit.com/) every 5 hours. These IPs are ideal for configuring proxies, VPNs, or improving network performance.
 
-**Last Updated:** 2026-01-25 00:14:15 +0330
+**Last Updated:** 2026-01-25 10:24:50 +0330
 
 **JSON Files**: The `ipv4.json`, `ipv6.json`, and `export.json` files are available in the [Releases section](https://github.com/Argh94/IPOptimizer/releases).
 
@@ -32,16 +32,16 @@
 | 104.16.9.245 | 80, 443, 8080 | 51 |
 | 104.16.157.90 | 80, 443, 8080 | 51 |
 | 141.101.114.104 | 80, 443, 8080 | 52 |
-| 104.16.149.41 | 80, 443, 8080 | 52 |
 | 141.101.114.227 | 80, 443, 8080 | 52 |
+| 104.16.149.41 | 80, 443, 8080 | 52 |
 | 141.101.114.104 | 80, 443, 8080 | 52 |
-| 104.16.149.41 | 80, 443, 8080 | 52 |
 | 141.101.114.227 | 80, 443, 8080 | 52 |
-| 198.41.222.218 | 80, 443, 8080 | 66 |
-| 162.159.36.228 | 80, 443, 8080 | 71 |
-| 104.18.70.202 | 80, 443, 8080 | 130 |
-| 104.17.32.76 | 80, 443, 8080 | 130 |
-| 104.19.238.56 | 80, 443, 8080 | 132 |
+| 104.16.149.41 | 80, 443, 8080 | 52 |
+| 104.18.77.181 | 80, 443, 8080 | 135 |
+| 104.16.0.39 | 80, 443, 8080 | 139 |
+| 104.19.106.198 | 80, 443, 8080 | 151 |
+| 104.16.0.253 | 80, 443, 8080 | 151 |
+| 104.18.72.118 | 80, 443, 8080 | 153 |
 
 ### IPv6
 | IP | Suggested Ports | Latency (ms) |
