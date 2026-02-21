@@ -10,7 +10,7 @@
 
 **IPOptimizer** fetches a list of optimized IPs (IPv4 and IPv6) with the lowest latency from [Hostmonit](https://hostmonit.com/) every 5 hours. These IPs are ideal for configuring proxies, VPNs, or improving network performance.
 
-**Last Updated:** 2026-02-21 00:25:06 +0330
+**Last Updated:** 2026-02-21 10:36:24 +0330
 
 **JSON Files**: The `ipv4.json`, `ipv6.json`, and `export.json` files are available in the [Releases section](https://github.com/Argh94/IPOptimizer/releases).
 
@@ -37,11 +37,11 @@
 | 141.101.114.165 | 80, 443, 8080 | 54 |
 | 104.16.153.2 | 80, 443, 8080 | 56 |
 | 104.16.153.2 | 80, 443, 8080 | 56 |
-| 104.17.82.100 | 80, 443, 8080 | 130 |
-| 104.19.204.172 | 80, 443, 8080 | 130 |
-| 104.16.159.35 | 80, 443, 8080 | 130 |
-| 104.18.250.127 | 80, 443, 8080 | 131 |
-| 104.16.143.50 | 80, 443, 8080 | 134 |
+| 104.19.80.36 | 80, 443, 8080 | 130 |
+| 104.18.184.71 | 80, 443, 8080 | 131 |
+| 104.19.198.240 | 80, 443, 8080 | 132 |
+| 172.64.95.171 | 80, 443, 8080 | 141 |
+| 104.17.8.132 | 80, 443, 8080 | 141 |
 
 ### IPv6
 | IP | Suggested Ports | Latency (ms) |
