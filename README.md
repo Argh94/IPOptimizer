@@ -10,7 +10,7 @@
 
 **IPOptimizer** fetches a list of optimized IPs (IPv4 and IPv6) with the lowest latency from [Hostmonit](https://hostmonit.com/) every 5 hours. These IPs are ideal for configuring proxies, VPNs, or improving network performance.
 
-**Last Updated:** 2026-04-22 11:44:06 +0330
+**Last Updated:** 2026-04-23 00:57:17 +0330
 
 **JSON Files**: The `ipv4.json`, `ipv6.json`, and `export.json` files are available in the [Releases section](https://github.com/Argh94/IPOptimizer/releases).
 
@@ -31,21 +31,21 @@
 ### IPv6
 | IP | Suggested Ports | Latency (ms) |
 |:---:|:---------------:|:------------:|
-| [2606:4700:964c:d253:4d97:bc1a:d374:3757] | 80, 443, 8080 | 1 |
-| [2606:4700:964c:d253:4d97:bc1a:d374:3757] | 80, 443, 8080 | 1 |
-| [2606:4700:964c:d253:4d97:bc1a:d374:3757] | 80, 443, 8080 | 1 |
-| [2606:4700:8dd8:2f07:4912:1a0:e232:71f3] | 80, 443, 8080 | 3 |
-| [2606:4700:9a6b:10cc:6f14:7dbf:82d4:4c10] | 80, 443, 8080 | 3 |
-| [2606:4700:90c8:8a8f:ab1d:b9b8:5edf:1d51] | 80, 443, 8080 | 3 |
-| [2606:4700:8dd8:ac34:3d4d:cf8e:2bbe:752e] | 80, 443, 8080 | 3 |
-| [2606:4700:8dd8:2f07:4912:1a0:e232:71f3] | 80, 443, 8080 | 3 |
-| [2606:4700:9a6b:10cc:6f14:7dbf:82d4:4c10] | 80, 443, 8080 | 3 |
-| [2606:4700:90c8:8a8f:ab1d:b9b8:5edf:1d51] | 80, 443, 8080 | 3 |
-| [2606:4700:8dd8:ac34:3d4d:cf8e:2bbe:752e] | 80, 443, 8080 | 3 |
-| [2606:4700:8dd8:2f07:4912:1a0:e232:71f3] | 80, 443, 8080 | 3 |
-| [2606:4700:9a6b:10cc:6f14:7dbf:82d4:4c10] | 80, 443, 8080 | 3 |
-| [2606:4700:90c8:8a8f:ab1d:b9b8:5edf:1d51] | 80, 443, 8080 | 3 |
-| [2606:4700:8dd8:ac34:3d4d:cf8e:2bbe:752e] | 80, 443, 8080 | 3 |
+| [2606:4700:9ada:d4f:8cbb:36ad:2dc4:f65a] | 80, 443, 8080 | 3 |
+| [2606:4700:9ada:dcd7:1b0:6258:ca3c:abb] | 80, 443, 8080 | 3 |
+| [2606:4700:8d96:7343:136c:ad92:a8ce:2e00] | 80, 443, 8080 | 3 |
+| [2606:4700:90ce:a9ad:291b:7ee5:dac6:8a5] | 80, 443, 8080 | 3 |
+| [2606:4700:8d9d:e0ab:f9bd:29de:f083:1517] | 80, 443, 8080 | 3 |
+| [2606:4700:9ada:d4f:8cbb:36ad:2dc4:f65a] | 80, 443, 8080 | 3 |
+| [2606:4700:9ada:dcd7:1b0:6258:ca3c:abb] | 80, 443, 8080 | 3 |
+| [2606:4700:8d96:7343:136c:ad92:a8ce:2e00] | 80, 443, 8080 | 3 |
+| [2606:4700:90ce:a9ad:291b:7ee5:dac6:8a5] | 80, 443, 8080 | 3 |
+| [2606:4700:8d9d:e0ab:f9bd:29de:f083:1517] | 80, 443, 8080 | 3 |
+| [2606:4700:9ada:d4f:8cbb:36ad:2dc4:f65a] | 80, 443, 8080 | 3 |
+| [2606:4700:9ada:dcd7:1b0:6258:ca3c:abb] | 80, 443, 8080 | 3 |
+| [2606:4700:8d96:7343:136c:ad92:a8ce:2e00] | 80, 443, 8080 | 3 |
+| [2606:4700:90ce:a9ad:291b:7ee5:dac6:8a5] | 80, 443, 8080 | 3 |
+| [2606:4700:8d9d:e0ab:f9bd:29de:f083:1517] | 80, 443, 8080 | 3 |
 
 ## 🛠️ Installation and Usage
 1. **Clone the Repository**:
