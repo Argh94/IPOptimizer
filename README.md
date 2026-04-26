@@ -10,7 +10,7 @@
 
 **IPOptimizer** fetches a list of optimized IPs (IPv4 and IPv6) with the lowest latency from [Hostmonit](https://hostmonit.com/) every 5 hours. These IPs are ideal for configuring proxies, VPNs, or improving network performance.
 
-**Last Updated:** 2026-04-26 00:36:03 +0330
+**Last Updated:** 2026-04-26 11:31:12 +0330
 
 **JSON Files**: The `ipv4.json`, `ipv6.json`, and `export.json` files are available in the [Releases section](https://github.com/Argh94/IPOptimizer/releases).
 
@@ -31,21 +31,6 @@
 ### IPv6
 | IP | Suggested Ports | Latency (ms) |
 |:---:|:---------------:|:------------:|
-| [2606:4700:9aea:ebaa:f5ec:ebf7:5f0e:a3f9] | 80, 443, 8080 | 3 |
-| [2606:4700:9aea:ebaa:f5ec:ebf7:5f0e:a3f9] | 80, 443, 8080 | 3 |
-| [2606:4700:9aea:ebaa:f5ec:ebf7:5f0e:a3f9] | 80, 443, 8080 | 3 |
-| [2606:4700:9649:a936:261f:bdc4:f86b:f670] | 80, 443, 8080 | 4 |
-| [2606:4700:9aea:ce5b:ac75:c828:f7f9:8c5e] | 80, 443, 8080 | 4 |
-| [2606:4700:9649:a936:261f:bdc4:f86b:f670] | 80, 443, 8080 | 4 |
-| [2606:4700:9aea:ce5b:ac75:c828:f7f9:8c5e] | 80, 443, 8080 | 4 |
-| [2606:4700:9649:a936:261f:bdc4:f86b:f670] | 80, 443, 8080 | 4 |
-| [2606:4700:9aea:ce5b:ac75:c828:f7f9:8c5e] | 80, 443, 8080 | 4 |
-| [2606:4700:83b0:b661:3859:688c:14d8:7b01] | 80, 443, 8080 | 284 |
-| [2606:4700:83b0:b661:3859:688c:14d8:7b01] | 80, 443, 8080 | 284 |
-| [2606:4700:83b0:b661:3859:688c:14d8:7b01] | 80, 443, 8080 | 284 |
-| [2606:4700:83b0:eeda:2c74:d0b6:6cb:9f0d] | 80, 443, 8080 | 285 |
-| [2606:4700:83b0:eeda:2c74:d0b6:6cb:9f0d] | 80, 443, 8080 | 285 |
-| [2606:4700:83b0:eeda:2c74:d0b6:6cb:9f0d] | 80, 443, 8080 | 285 |
 
 ## 🛠️ Installation and Usage
 1. **Clone the Repository**:
